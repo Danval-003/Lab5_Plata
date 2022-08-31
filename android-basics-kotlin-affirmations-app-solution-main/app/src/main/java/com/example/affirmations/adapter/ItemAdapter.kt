@@ -25,6 +25,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.R
 import com.example.affirmations.model.Affirmation
+import com.squareup.picasso.Picasso
 
 /**
  * Adapter for the [RecyclerView] in [MainActivity]. Displays [Affirmation] data object.
@@ -59,8 +60,10 @@ class ItemAdapter(
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
+        val url = context.resources.getString(item.imageResourceId)
         holder.textView.text = context.resources.getString(item.stringResourceId)
-        holder.imageView.setImageResource(item.imageResourceId)
+        Picasso.get().load(url).into(holder.imageView)
+
     }
 
     /**
