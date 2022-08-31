@@ -22,6 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.R
 import com.example.affirmations.model.Affirmation
@@ -63,6 +64,10 @@ class ItemAdapter(
         val url = context.resources.getString(item.imageResourceId)
         holder.textView.text = context.resources.getString(item.stringResourceId)
         Picasso.get().load(url).into(holder.imageView)
+        holder.imageView.setOnClickListener{
+            Toast.makeText(holder.itemView.context,"Position: "+position, Toast.LENGTH_LONG).show()
+        }
+
 
     }
 
